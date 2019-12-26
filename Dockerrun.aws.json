@@ -1,0 +1,42 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "client",
+            "image": "bktgm/multi-client",
+            "hostname": "client",
+            "essentials": false 
+            
+        },
+
+        {
+            "name":"server",
+            "image":"bktgm/multi-server",
+            "hostname":"api",
+            "essentials":false
+        },
+
+        {
+            "name":"worker",
+            "image": "bktgm/multi-worker",
+            "hostname": "worker",
+            "essentials":false
+        },
+
+        {
+            "name":"nginx",
+            "image":"bktgm/multi-nginx",
+            "hostname":"nginx",
+            "essentials":true,
+            "portMapping": [
+                {
+                    "hostport":80,
+                    "containerPort":80
+                }
+            ],
+
+            "links": ["client", "server"]
+        }
+
+    ]
+}

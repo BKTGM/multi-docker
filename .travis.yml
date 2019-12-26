@@ -1,0 +1,29 @@
+sudo: required
+services: 
+    - docker
+
+before_install:
+    - docker build -t bktgm/react-test -f ./client/Dockerfile.dev ./client 
+    # build the image with name as react-test and override with -f dockerfile  
+    # and also find whr thr project files can be found (./client) to get the bild context
+
+script:
+    - docker run bktgm/react-test npm test -- --coverage 
+    # run the image override the default stratup cmd with npm test and to exit the npm test script 
+    # use -- -- coverage
+
+after_success:
+    - docker build -t bktgm/multi-client ./client # building the images with name as multi-client 
+    - docker build -t bktgm/multi-nginx ./nginx
+    - docker build -t bktgm/multi-server ./server
+    - docker build -t bktgm/multi-worker ./worker
+
+   # Login to docker CLI
+
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+# Take those images and push them to dockerhub
+    - docker push bktgm/multi-client
+    - docker push bktgm/multi-nginx
+    - docker push bktgm/multi-server
+    - docker push bktgm/multi-worker

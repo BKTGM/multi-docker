@@ -5,16 +5,16 @@
             "name": "client",
             "image": "bktgm/multi-client",
             "hostname": "client",
-            "essentials": false ,
-            "memory" : 500
+            "essentials": false 
+           
         },
 
         {
             "name":"server",
             "image":"bktgm/multi-server",
             "hostname":"a500pi",
-            "essentials":false,
-            "memory" : 500
+            "essentials":false
+            
 
         },
 
@@ -22,8 +22,8 @@
             "name":"worker",
             "image": "bktgm/multi-worker",
             "hostname": "worker",
-            "essentials":false,
-            "memory" : 500
+            "essentials":false
+            
 
         },
 
@@ -39,8 +39,8 @@
                 }
             ],
 
-            "links": ["client", "server"],
-            "memory" : 500
+            "links": ["client", "server"]
+           
 
         }
 

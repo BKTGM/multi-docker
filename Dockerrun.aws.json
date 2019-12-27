@@ -6,7 +6,7 @@
             "image": "bktgm/multi-client",
             "hostname": "client",
             "essentials": false, 
-            "mem_limit": 3576492
+            "memory": 100
         },
 
         {
@@ -14,7 +14,7 @@
             "image":"bktgm/multi-server",
             "hostname":"a500pi",
             "essentials":false,
-            "mem_limit": 3576492
+            "memory": 100
 
         },
 
@@ -23,7 +23,7 @@
             "image": "bktgm/multi-worker",
             "hostname": "worker",
             "essentials":false,
-            "mem_limit": 3576492
+            "memory": 100
 
         },
 
@@ -40,7 +40,7 @@
             ],
 
             "links": ["client", "server"],
-            "mem_limit": 3576492
+            "memory": 100
 
         }
 

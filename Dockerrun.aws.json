@@ -5,16 +5,16 @@
             "name": "client",
             "image": "bktgm/multi-client",
             "hostname": "client",
-            "essentials": false 
-           
+            "essentials": false, 
+            "mem_limit": 3576492
         },
 
         {
             "name":"server",
             "image":"bktgm/multi-server",
             "hostname":"a500pi",
-            "essentials":false
-            
+            "essentials":false,
+            "mem_limit": 3576492
 
         },
 
@@ -22,8 +22,8 @@
             "name":"worker",
             "image": "bktgm/multi-worker",
             "hostname": "worker",
-            "essentials":false
-            
+            "essentials":false,
+            "mem_limit": 3576492
 
         },
 
@@ -39,8 +39,8 @@
                 }
             ],
 
-            "links": ["client", "server"]
-           
+            "links": ["client", "server"],
+            "mem_limit": 3576492
 
         }
 
